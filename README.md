@@ -54,13 +54,11 @@
 
 <div class="container">
     <h1>Vehicle License Plate Recognition System</h1>
-
     <div class="section">
         <h2>Introduction</h2>
         <p>This project is a <strong>Vehicle License Plate Recognition System</strong> built using Python, OpenCV, and Flask. The application allows users to upload a video file, which is then processed to detect vehicles, recognize their types, colors, and license plates. The results are saved in a text file, providing a clear overview of detected vehicles.</p>
         <p>این پروژه یک <strong>سیستم شناسایی پلاک خودرو</strong> است که با استفاده از پایتون، OpenCV و Flask ساخته شده است. این برنامه به کاربران اجازه می‌دهد تا یک فایل ویدئویی را بارگذاری کنند، که سپس برای شناسایی خودروها، تشخیص نوع، رنگ و پلاک آن‌ها پردازش می‌شود. نتایج در یک فایل متنی ذخیره می‌شوند و نمای واضحی از خودروهای شناسایی شده ارائه می‌دهند.</p>
     </div>
-
     <div class="section">
         <h2>Features</h2>
         <ul>
@@ -80,7 +78,6 @@
             <li>رابط کاربری دوستانه وب ساخته شده با Flask.</li>
         </ul>
     </div>
-
     <div class="section">
         <h2>Prerequisites</h2>
         <p>Before running the project, ensure you have the following installed:</p>
@@ -105,7 +102,6 @@
             <li>Download YOLO weights and configuration files from the official <a href="https://pjreddie.com/darknet/yolo/">YOLO website</a> and place them in the project directory.</li>
         </ol>
     </div>
-
     <div class="section">
         <h2>Usage</h2>
         <ol>
@@ -129,7 +125,6 @@
             <li>رنگ خودرو: قرمز</li>
         </ul>
     </div>
-
     <div class="section">
         <h2>Libraries Used</h2>
         <ul>
@@ -144,7 +139,6 @@
             <li><strong>NumPy</strong>: یک کتابخانه برای محاسبات عددی در پایتون.</li>
         </ul>
     </div>
-
     <div class="section">
         <h2>Applications</h2>
         <ul>
@@ -161,13 +155,11 @@
             <li>ابتکارات شهر هوشمند برای ردیابی خودروها.</li>
         </ul>
     </div>
-
     <div class="section">
         <h2>Conclusion</h2>
         <p>The Vehicle License Plate Recognition System is a powerful tool for monitoring and managing vehicles effectively. By leveraging deep learning techniques and computer vision, it provides a reliable way to analyze video footage and extract valuable information.</p>
         <p>سیستم شناسایی پلاک خودرو یک ابزار قدرتمند برای نظارت و مدیریت مؤثر خودروها است. با استفاده از تکنیک‌های یادگیری عمیق و بینایی کامپیوتر، این سیستم یک روش قابل اعتماد برای تحلیل ویدیوها و استخراج اطلاعات ارزشمند ارائه می‌دهد.</p>
     </div>
-
     <div class="section">
         <h2>License</h2>
         <p>This project is licensed under the MIT License. See the <a href="LICENSE">LICENSE</a> file for more details.</p>
