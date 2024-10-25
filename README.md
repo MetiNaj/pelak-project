@@ -53,7 +53,7 @@
 <body>
 
 <div class="container">
-    <h1>Vehicle License Plate Recognition System</h1>
+    <h1> Vehicle License Plate Recognition System </h1>
     <div class="section">
         <h2>Introduction</h2>
         <p>This project is a <strong>Vehicle License Plate Recognition System</strong> built using Python, OpenCV, and Flask. The application allows users to upload a video file, which is then processed to detect vehicles, recognize their types, colors, and license plates. The results are saved in a text file, providing a clear overview of detected vehicles.</p>
