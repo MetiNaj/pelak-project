@@ -1,53 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vehicle License Plate Recognition System</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        h1, h2, h3, h4 {
-            color: #4CAF50;
-        }
-        code {
-            background-color: #e8e8e8;
-            padding: 5px;
-            border-radius: 5px;
-        }
-        pre {
-            background-color: #e8e8e8;
-            padding: 10px;
-            border-radius: 5px;
-            overflow: auto;
-        }
-        ul {
-            list-style-type: square;
-            margin: 10px 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .section {
-            margin-bottom: 20px;
-        }
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.9em;
-            color: #777;
-        }
-    </style>
+
+  
 </head>
 <body>
 
