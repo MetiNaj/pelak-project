@@ -2,41 +2,32 @@ name: Auto Commit
 
 on:
   schedule:
-    - cron: '0 */12 * * *'  # هر 12 ساعت یکبار اجرا
-  workflow_dispatch:  # امکان اجرای دستی
+    - cron: '0 12 * * *'   # هر روز ساعت 12 UTC اجرا میشه
+  workflow_dispatch:
 
 jobs:
   auto-commit:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false  # خیلی مهم: credentials پیش‌فرض غیرفعال میشه
 
-    - name: Set up git user
-      run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Make change
+        run: |
+          echo "Update on $(date -u)" >> update.txt
 
-    - name: Update file with timestamp
-      run: |
-        echo "Last updated: $(date -u)" > update.txt
-        git add update.txt
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add update.txt
+          git commit -m "chore: auto commit - $(date -u)" || echo "No changes to commit"
 
-    - name: Check if there are changes
-      id: git-check
-      run: |
-        if git diff --cached --quiet; then
-          echo "No changes to commit"
-          echo "changed=false" >> $GITHUB_OUTPUT
-        else
-          echo "There are changes to commit"
-          echo "changed=true" >> $GITHUB_OUTPUT
-        fi
-
-    - name: Commit and push changes
-      if: steps.git-check.outputs.changed == 'true'
-      run: |
-        git commit -m "chore: auto commit - $(date -u)"
-        git push
-
+      - name: Push changes
+        env:
+          TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          git push https://x-access-token:${TOKEN}@github.com/${{ github.repository }}.git HEAD:main
