@@ -2,25 +2,41 @@ name: Auto Commit
 
 on:
   schedule:
-    - cron: '0 */12 * * *' # هر ۱۲ ساعت یک‌بار
-  workflow_dispatch:
+    - cron: '0 */12 * * *'  # هر 12 ساعت یکبار اجرا
+  workflow_dispatch:  # امکان اجرای دستی
 
 jobs:
   auto-commit:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: Checkout repo
       uses: actions/checkout@v3
 
-    - name: Create random change
+    - name: Set up git user
       run: |
-        echo "// $(date)" >> dummy.js
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
 
-    - name: Commit changes
+    - name: Update file with timestamp
       run: |
-        git config --global user.name "Mahdi Najari Bot"
-        git config --global user.email "you@example.com"
-        git add .
-        git commit -m "🤖 Auto update: $(date)" || echo "No changes to commit"
+        echo "Last updated: $(date -u)" > update.txt
+        git add update.txt
+
+    - name: Check if there are changes
+      id: git-check
+      run: |
+        if git diff --cached --quiet; then
+          echo "No changes to commit"
+          echo "changed=false" >> $GITHUB_OUTPUT
+        else
+          echo "There are changes to commit"
+          echo "changed=true" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Commit and push changes
+      if: steps.git-check.outputs.changed == 'true'
+      run: |
+        git commit -m "chore: auto commit - $(date -u)"
         git push
+
