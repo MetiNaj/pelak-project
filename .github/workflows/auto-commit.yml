@@ -1,0 +1,26 @@
+name: Auto Commit
+
+on:
+  schedule:
+    - cron: '0 */12 * * *' # هر ۱۲ ساعت یک‌بار
+  workflow_dispatch:
+
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Create random change
+      run: |
+        echo "// $(date)" >> dummy.js
+
+    - name: Commit changes
+      run: |
+        git config --global user.name "Mahdi Najari Bot"
+        git config --global user.email "you@example.com"
+        git add .
+        git commit -m "🤖 Auto update: $(date)" || echo "No changes to commit"
+        git push
